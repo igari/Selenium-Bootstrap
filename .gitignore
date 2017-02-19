@@ -1,0 +1,5 @@
+.idea/
+*iml
+samples/
+mochawesome-reports/
+browserStackLocal.txt
