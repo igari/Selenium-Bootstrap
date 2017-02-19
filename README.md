@@ -75,24 +75,26 @@ driver.executeScript('var allElements = document.querySelector("*"); for(var i =
 #### `this.executeScript`
 
 ```js
-this.executeScript(function(arg1, arg2, arg3, arg4, arg5) {
-  var allElements = document.querySelector("*");
-  for(var i = 0, len = allElements.length; i < len; i++) {
-    allElements[i].hidden = true;
-  }
-  return 'any value to want to pass';
-});
+this.executeScript(function(Arguments, are, available, at, here) {
+
+  document.querySelector(".login-button").click();
+
+  return [Arguments, are, available, at, here].join(' ');//Passed "Arguments are available at here;"
+}, 'Arguments', 'are', 'available', 'at', 'here');
 ```
 
 #### `this.executeAsyncScript`
 
 ```js
-this.executeAsyncScript(function() {
+this.executeAsyncScript(function(Arguments, are, available, at, here) {
   var callback = arguments[arguments.length = 1];
+
+  document.querySelector(".login-button").click();
+ 
   setTimeout(function() {
-    callback('any value to want to pass')
+    callback([Arguments, are, available, at, here].join(' '))//Passed "Arguments are available at here;"
   }, 10000);
-});
+}, 'Arguments', 'are', 'available', 'at', 'here');
 ```
 
 #### `this.saveFullScreenshot`
