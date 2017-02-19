@@ -16,7 +16,7 @@
     "colors": "^1.1.2",
     "del": "^2.2.2",
     "firefox-profile": "^0.4.8",
-    "git-rev": "^0.2.1",
+    "git-rev-sync": "^1.8.0",
     "gm": "^1.23.0",
     "mkdirp": "^0.5.1",
     "mocha": "^3.2.0",

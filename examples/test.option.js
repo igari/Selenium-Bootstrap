@@ -1,6 +1,20 @@
-const Selen = require('../../lib/selen.js');
+const moment = require('moment');
+const timestamp = moment().format('YYYYMMDDHHmmss');
+const git = require('git-rev-sync');
+const Selen = require('../lib/selen.js');
 const selen = new Selen({
   browserName: 'chrome'
+}, {
+  mocha: {
+    reporter: 'mochawesome',
+    reporterOptions: {
+      reportDir: `./mochawesome-reports/${git.branch()}/${git.long()}/${timestamp}/`,
+      reportFilename: 'mochawesome.html',
+      enableCharts: true,
+      autoOpen: true,
+      quiet: false
+    }
+  }
 });
 
 selen.describe('Get Title of each page', function () {

@@ -42,7 +42,7 @@ node index.js
 ### Testing with [Mocha](https://mochajs.org/)
 
 Use `selen.describe` and `selen.it` with `yield` and `generator` function.
-So you can get a report from Mocha
+So you can get a report of mochawesome!
 
 index.js
 ```js
@@ -60,7 +60,7 @@ selen.run();
 ```sh
 node index.js
 ```
-[NOTE] Don't use `mocha` command.
+Don't use `mocha` command.
 
 
 ## Some better API than native Webdriver API
@@ -151,6 +151,30 @@ const selen = new Selen({
 
 Download & use [Sauce Connect](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy) from Sauce Labs.
 
+
+## Options
+
+
+```js
+const moment = require('moment');
+const timestamp = moment().format('YYYYMMDDHHmmss');
+const git = require('git-rev-sync');
+const Selen = require('../lib/selen.js');
+const selen = new Selen({
+  browserName: 'chrome'
+}, {
+  mocha: {
+    reporter: 'mochawesome',
+    reporterOptions: {
+      reportDir: `./mochawesome-reports/${git.branch()}/${git.long()}/${timestamp}/`,
+      reportFilename: 'mochawesome.html',
+      enableCharts: true,
+      autoOpen: true,
+      quiet: false
+    }
+  }
+});
+```
 
 ## Roadmap
 

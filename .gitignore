@@ -3,3 +3,4 @@
 samples/
 mochawesome-reports/
 browserStackLocal.txt
+yarn-error.log
