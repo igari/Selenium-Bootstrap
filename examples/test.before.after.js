@@ -3,7 +3,7 @@ const selen = new Selen({
   browserName: 'chrome'
 });
 
-selen.describe('Get Title of Google page', function () {
+selen.describe('Search and Get Title', function () {
   selen.before(function () {
     return new Promise(function (resolve) {
       setTimeout(function () {

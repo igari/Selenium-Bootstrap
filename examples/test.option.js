@@ -17,7 +17,7 @@ const selen = new Selen({
   }
 });
 
-selen.describe('Get Title of Google page', function () {
+selen.describe('Search and Get Title', function () {
   selen.it('google', function*(driver, webdriver) {
     yield driver.get('http://www.google.com/ncr');
     yield driver.findElement(webdriver.By.name('q')).sendKeys('webdriver');

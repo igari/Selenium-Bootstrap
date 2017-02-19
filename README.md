@@ -11,8 +11,8 @@ npm i selen -D
 
 ## Usage
 
-This is a minimal code! Try out `firefox` and `safari` also if you have.
-`selen.run` is an API which work without Testing using `yield` and `generator` function, just only work.
+This is minimal code! Use `selen.describe()` and `selen.it()` with `yield` and `generator` function.
+And run with `selen.run()` eventually, so you can get a report of [MOCHAWESOME](http://adamgruber.github.io/mochawesome/)!
 
 index.js
 ```js
@@ -20,33 +20,7 @@ const Selen = require('selen');
 const selen = new Selen({
   browserName: 'chrome'
 });
-
-selen.run(function* (driver, webdriver) {
-  yield driver.get('http://www.google.com/ncr');
-  yield driver.findElement(webdriver.By.name('q')).sendKeys('webdriver');
-  yield driver.findElement(webdriver.By.name('btnG')).click();
-  yield driver.wait(webdriver.until.titleIs('webdriver - Google Search'), 5000);
-});
-```
-
-```sh
-node index.js
-```
-
-- Launch Selenium Standalone
-- Launch Browser(No necessary to set up Drivers!)
-- Execute WebDriver Code (Write with `yield` with `generator` function)
-- Kill all of process related to theirs
-- Done!
-
-### Testing with [Mocha](https://mochajs.org/)
-
-Use `selen.describe` and `selen.it` with `yield` and `generator` function.
-So you can get a report of mochawesome!
-
-index.js
-```js
-selen.describe('Get Title of Google page', function () {
+selen.describe('Search and Get Title', function () {
   selen.it('google', function*(driver, webdriver) {
     yield driver.get('http://www.google.com/ncr');
     yield driver.findElement(webdriver.By.name('q')).sendKeys('webdriver');
@@ -56,39 +30,28 @@ selen.describe('Get Title of Google page', function () {
 });
 selen.run();
 ```
-
 ```sh
 node index.js
 ```
-Don't use `mocha` command.
 
+NOTE: Don't use `mocha` command.
 
-### Almost like Mocha syntax
+### Importing almost Mocha API under `selen` instance 
 
 ```js
-
-selen.describe('Get Title of Google page', function () {
+selen.describe('Search and Get Title', function () {
   selen.before(function () {
-    return new Promise(function (resolve) {
-      setTimeout(function () {
-        console.log('do before all')
-        resolve();
-      }, 3000);
-    })
+    console.log('do before all');
   });
   selen.after(function (done) {
-    setTimeout(function () {
-      console.log('do after all')
-      done();
-    }, 2000);
+    console.log('do after all');
   });
   selen.beforeEach(function () {
-    console.log('do before each')
+    console.log('do before each');
   });
   selen.afterEach(function () {
-    console.log('do after each')
+    console.log('do after each');
   });
-
   selen.it('google', function*(driver, webdriver) {
     yield driver.get('http://www.google.com/ncr');
     yield driver.findElement(webdriver.By.name('q')).sendKeys('webdriver');
@@ -98,13 +61,35 @@ selen.describe('Get Title of Google page', function () {
 });
 ```
 
+### Usage without Testing
+
+`selen.run()` is an API which work without Testing using `yield` and `generator` function, just only work.
+
+index.js
+```js
+const Selen = require('selen');
+const selen = new Selen({
+  browserName: 'chrome'
+});
+selen.run(function* (driver, webdriver) {
+  yield driver.get('http://www.google.com/ncr');
+  yield driver.findElement(webdriver.By.name('q')).sendKeys('webdriver');
+  yield driver.findElement(webdriver.By.name('btnG')).click();
+  yield driver.wait(webdriver.until.titleIs('webdriver - Google Search'), 5000);
+});
+```
+```sh
+node index.js
+```
+
 ## Some better API than native Webdriver API
 
 ### `driver.executeScript` and `driver.executeAsyncScript` are too unreadable and too difficult to write
-because they are should to be passed as string like below.
+The problem is that they are should to be passed as string like below.
 
 ```js
-driver.executeScript('var allElements = document.querySelector("*"); for(var i = 0, len = allElements.length; i < len; i++) { allElements[i].hidden = true; } return "any value to want to pass";')
+driver.executeScript('document.querySelector(".login-button").click();return [Arguments, are, available, at, here].join(" ");');
+driver.executeAsyncScript('var callback = arguments[arguments.length = 1];document.querySelector(".login-button").click();setTimeout(function() {callback([Arguments, are, available, at, here].join(" "))}, 10000);')
 ```
 
 #### `this.executeScript`
@@ -127,15 +112,26 @@ this.executeAsyncScript(function(Arguments, are, available, at, here) {
   document.querySelector(".login-button").click();
  
   setTimeout(function() {
-    callback([Arguments, are, available, at, here].join(' '))//Passed "Arguments are available at here;"
+    callback([Arguments, are, available, at, here].join(" "))//Passed "Arguments are available at here;"
   }, 10000);
 }, 'Arguments', 'are', 'available', 'at', 'here');
 ```
 
-#### `this.saveFullScreenshot`
+#### `this.saveScreenshot`
 
-Under Implementing.
+```js
+this.saveScreenshot();// -> save screenshot in path based on the page url (replaced ? / # to _)
+this.saveScreenshot('./my_screenshot/hoge.png');// -> save screenshot in path based on the page url
+```
 
+- Supported for fullpage screenshot on almost browsers.
+- Emulating fullpage screenshot with scrolling page.
+- Saving file even if you don't specify path.
+
+## Browser support on your local
+
+On your local, `chrome` and `firefox` and `safari` are available even if not preparing special except for browser installing.
+Support of `windows` and `ie11` and `edge` is preparing.
 
 ## Remote Testing with many browsers
 
@@ -194,7 +190,7 @@ const moment = require('moment');
 const timestamp = moment().format('YYYYMMDDHHmmss');
 const git = require('git-rev-sync');
 
-const Selen = require('../lib/selen.js');
+const Selen = require('selen');
 const selen = new Selen({
   browserName: 'chrome'
 }, {
@@ -219,6 +215,10 @@ const selen = new Selen({
 ###### v.0.9.0
 
 - add saveFullScreenshot API
+
+###### v.1.0.0
+
+- support windows OS and browsers
 - add function output browser logs
 
 ## Changed log
@@ -241,5 +241,4 @@ They are awesome cloud testing services using real browsers and devices.
 <a href="https://www.browserstack.com/"><img src="https://style-validator.io/img/browserstack-logo.svg" width="350" style="vertical-align: middle;"></a><br>
 <br>
 <a href="https://saucelabs.com/"><img src="https://saucelabs.com/content/images/logo@2x.png" width="350" style="vertical-align: middle;"></a><br>
-
 
