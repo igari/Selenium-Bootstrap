@@ -154,11 +154,11 @@ Download & use [Sauce Connect](https://wiki.saucelabs.com/display/DOCS/Sauce+Con
 
 ## Options
 
-
 ```js
 const moment = require('moment');
 const timestamp = moment().format('YYYYMMDDHHmmss');
 const git = require('git-rev-sync');
+
 const Selen = require('../lib/selen.js');
 const selen = new Selen({
   browserName: 'chrome'
