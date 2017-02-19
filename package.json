@@ -1,6 +1,6 @@
 {
   "name": "selen",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Just only Install this, then Selenium3.0 works. So E2E Testing can get started so easily!",
   "main": "./lib/selen.js",
   "bin": "./bin/selen",

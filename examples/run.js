@@ -7,5 +7,5 @@ selen.run(function*(driver, webdriver) {
   yield driver.findElement(webdriver.By.name('q')).sendKeys('webdriver');
   yield driver.findElement(webdriver.By.name('btnG')).click();
   yield driver.wait(webdriver.until.titleIs('webdriver - Google Search'), 5000);
-  yield this.saveScreenshot();
+  yield selen.saveScreenshot();
 });

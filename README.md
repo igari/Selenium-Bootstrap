@@ -92,10 +92,10 @@ driver.executeScript('document.querySelector(".login-button").click();return [Ar
 driver.executeAsyncScript('var callback = arguments[arguments.length = 1];document.querySelector(".login-button").click();setTimeout(function() {callback([Arguments, are, available, at, here].join(" "))}, 10000);')
 ```
 
-#### `this.executeScript`
+#### `selen.executeScript`
 
 ```js
-this.executeScript(function(Arguments, are, available, at, here) {
+selen.executeScript(function(Arguments, are, available, at, here) {
 
   document.querySelector(".login-button").click();
 
@@ -103,10 +103,10 @@ this.executeScript(function(Arguments, are, available, at, here) {
 }, 'Arguments', 'are', 'available', 'at', 'here');
 ```
 
-#### `this.executeAsyncScript`
+#### `selen.executeAsyncScript`
 
 ```js
-this.executeAsyncScript(function(Arguments, are, available, at, here) {
+selen.executeAsyncScript(function(Arguments, are, available, at, here) {
   var callback = arguments[arguments.length = 1];
 
   document.querySelector(".login-button").click();
@@ -117,11 +117,11 @@ this.executeAsyncScript(function(Arguments, are, available, at, here) {
 }, 'Arguments', 'are', 'available', 'at', 'here');
 ```
 
-#### `this.saveScreenshot`
+#### `selen.saveScreenshot`
 
 ```js
-this.saveScreenshot();// -> save screenshot in path based on the page url (replaced ? / # to _)
-this.saveScreenshot('./my_screenshot/hoge.png');// -> save screenshot in path based on the page url
+selen.saveScreenshot();// -> save screenshot in path based on the page url (replaced ? / # to _)
+selen.saveScreenshot('./my_screenshot/hoge.png');// -> save screenshot in path based on the page url
 ```
 
 - Supported for fullpage screenshot on almost browsers.
