@@ -50,7 +50,7 @@ Originally, below things is required to be worked Selenium
 ### Fully Inherit native Webdriver for NodeJS
 So writable native Webdriver for NodeJS in function `selenium.run`
 
-### Custom Helper APIs
+### Custom Wrapper APIs (better then native Webdriver APIs) 
 
 ##### Problem of `driver.executeScript` and `driver.executeAsyncScript`
 The problem is that they are should to be passed as string like below.
@@ -65,8 +65,6 @@ driver.executeAsyncScript('var callback = arguments[arguments.length = 1];docume
 ```js
 selenium.executeScript(func[, Arg1, Arg2, ...]);
 ```
-
-##### example
 ```js
 selenium.executeScript(function(Arguments, are, available, at, here) {
 
@@ -81,8 +79,6 @@ selenium.executeScript(function(Arguments, are, available, at, here) {
 ```js
 selenium.executeAsyncScript(func[, Arg1, Arg2, ...]);
 ```
-
-##### example
 ```js
 selenium.executeAsyncScript(function(Arguments, are, available, at, here) {
   var callback = arguments[arguments.length = 1];
@@ -100,7 +96,6 @@ selenium.executeAsyncScript(function(Arguments, are, available, at, here) {
 ```js
 selenium.takeScreenshot(path);
 ```
-
 ```js
 selenium.takeScreenshot('./my_screenshot/hoge.png');// -> save screenshot into specified path
 ```
