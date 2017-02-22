@@ -1,1 +1,0 @@
-require('../../examples/test.js');

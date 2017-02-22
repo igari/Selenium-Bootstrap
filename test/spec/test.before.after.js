@@ -1,1 +1,0 @@
-require('../../examples/test.before.after.js');
