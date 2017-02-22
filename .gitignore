@@ -4,4 +4,6 @@ samples/
 mochawesome-reports/
 browserStackLocal.txt
 yarn-error.log
-selen-shots/
+selen_error_shots/
+selen_shots/
+TASK.md

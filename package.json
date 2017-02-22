@@ -1,7 +1,7 @@
 {
   "name": "selen",
-  "version": "0.9.1",
-  "description": "Just only Install this, then Selenium3.0 works. So E2E Testing can get started so easily!",
+  "version": "0.9.2",
+  "description": "A Bootstrap for Selenium3.0. just only install this, you can E2E automation testing",
   "main": "./lib/selen.js",
   "bin": "./bin/selen",
   "scripts": {
@@ -13,6 +13,7 @@
     "browserstack-local": "^1.3.0",
     "chai": "^3.5.0",
     "co": "^4.6.0",
+    "co-mocha": "^1.2.0",
     "colors": "^1.1.2",
     "del": "^2.2.2",
     "firefox-profile": "^0.4.8",
