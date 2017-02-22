@@ -60,15 +60,15 @@ driver.executeScript('document.querySelector(".login-button").click();return [Ar
 driver.executeAsyncScript('var callback = arguments[arguments.length = 1];document.querySelector(".login-button").click();setTimeout(function() {callback([Arguments, are, available, at, here].join(" "))}, 10000);')
 ```
 
-#### `this.executeScript`
+#### `selenium.executeScript`
 
 ```js
-this.executeScript(func[, Arg1, Arg2, ...]);
+selenium.executeScript(func[, Arg1, Arg2, ...]);
 ```
 
 ##### example
 ```js
-this.executeScript(function(Arguments, are, available, at, here) {
+selenium.executeScript(function(Arguments, are, available, at, here) {
 
   document.querySelector(".login-button").click();
 
@@ -76,15 +76,15 @@ this.executeScript(function(Arguments, are, available, at, here) {
 }, 'Arguments', 'are', 'available', 'at', 'here');
 ```
 
-#### `this.executeAsyncScript`
+#### `selenium.executeAsyncScript`
 
 ```js
-this.executeAsyncScript(func[, Arg1, Arg2, ...]);
+selenium.executeAsyncScript(func[, Arg1, Arg2, ...]);
 ```
 
 ##### example
 ```js
-this.executeAsyncScript(function(Arguments, are, available, at, here) {
+selenium.executeAsyncScript(function(Arguments, are, available, at, here) {
   var callback = arguments[arguments.length = 1];
 
   document.querySelector(".login-button").click();
@@ -95,38 +95,18 @@ this.executeAsyncScript(function(Arguments, are, available, at, here) {
 }, 'Arguments', 'are', 'available', 'at', 'here');
 ```
 
-#### `this.takeScreenshot`
+#### `selenium.takeScreenshot`
 
 ```js
-this.takeScreenshot(path);
+selenium.takeScreenshot(path);
 ```
 
 ```js
-this.takeScreenshot('./my_screenshot/hoge.png');// -> save screenshot into specified path
+selenium.takeScreenshot('./my_screenshot/hoge.png');// -> save screenshot into specified path
 ```
 
 - Emulating **fullpage screenshot** with scrolling page for browsers which is not support fullpage screenshot(e.g. chrome).
 - Unnecessary to write `fs.writeFile' or `fs.writeFileSync` by yourself to save screenshot image..
-
-
-## Roadmap
-
-###### v.0.9.3
-
-- remove some dependencies of Mocha and MOCHAWESOME for working as simple Selenium
-
-###### v.0.9.0
-
-- add custom takeScreenshot API
-
-###### v.1.0.0
-
-- support windows OS and browsers
-- add function output browser logs
-
-## Changed log
-
-None.
 
 
 ## Services for Remote Testing and Multi Devices Testing
