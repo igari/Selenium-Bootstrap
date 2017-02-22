@@ -1,9 +1,10 @@
 .idea/
 *iml
+.temp/
 samples/
 mochawesome-reports/
 browserStackLocal.txt
 yarn-error.log
-selen_error_shots/
-selen_shots/
+screenshots/
+errorshots/
 TASK.md
