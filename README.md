@@ -11,15 +11,17 @@ npm i selenium-bootstrap -D
 
 ## Usage
 
-`selen.run()` is an simple API which launch Browser. Both of `generator function` and `normal function with prommise` are supported.(Below example is written `generator function`) 
+`selenium.run()` is an simple API which launch Browser. Both of `generator function` and `normal function with prommise` are supported.(Below example is written `generator function`) 
+And `capabilities` is able to be specified in the same way as `native Webdriver for NodeJS`.
 
 index.js
 ```js
-const Selen = require('selenium-bootstrap');
-const selen = new Selen({
+const capabilities = {
   browserName: 'chrome'
-});
-selen.run(function* (driver, webdriver) {
+};
+const Selenium = require('selenium-bootstrap');
+const selenium = new Selenium(capabilities);
+selenium.run(function* (driver, webdriver) {
   yield driver.get('http://www.google.com/ncr');
   yield driver.findElement(webdriver.By.name('q')).sendKeys('webdriver');
   yield driver.findElement(webdriver.By.name('btnG')).click();
@@ -40,9 +42,9 @@ Originally, below things is required to be worked Selenium
 - Download & Set PATH for driver binary of each browsers(except for safari10~)
 
 ### Fully Inherit native Webdriver for NodeJS
-So writable native Webdriver for NodeJS in function `selen.run`
+So writable native Webdriver for NodeJS in function `selenium.run`
 
-### Better APIs than native Webdriver API
+### Custom Helper APIs
 
 ##### Problem of `driver.executeScript` and `driver.executeAsyncScript`
 The problem is that they are should to be passed as string like below.
