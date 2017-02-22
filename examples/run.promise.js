@@ -1,4 +1,4 @@
-const Selen = require('../lib/selen.js');
+const Selen = require('../lib/selenium-bootstrap.js');
 const selen = new Selen({
   browserName: 'chrome'
 });

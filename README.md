@@ -2,11 +2,11 @@
 
 ## Installation
 ```sh
-yarn add selen
+yarn add selenium-bootstrap
 ```
 or
 ```sh
-npm i selen -D
+npm i selenium-bootstrap -D
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm i selen -D
 
 index.js
 ```js
-const Selen = require('selen');
+const Selen = require('selenium-bootstrap');
 const selen = new Selen({
   browserName: 'chrome'
 });

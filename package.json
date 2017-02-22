@@ -1,9 +1,9 @@
 {
-  "name": "selen",
-  "version": "0.9.3",
+  "name": "selenium-bootstrap",
+  "version": "0.0.1",
   "description": "A Bootstrap for Selenium3.0. Just only install this, then you can use Selenium3.0",
-  "main": "./lib/selen.js",
-  "bin": "./bin/selen",
+  "main": "./lib/selenium-bootstrap.js",
+  "bin": "./bin/selenium-bootstrap",
   "scripts": {
     "test": "node ./test/index"
   },
@@ -11,8 +11,6 @@
   "license": "MIT",
   "dependencies": {
     "browserstack-local": "^1.3.0",
-    "chai": "^3.5.0",
-    "colors": "^1.1.2",
     "del": "^2.2.2",
     "firefox-profile": "^0.4.8",
     "git-rev-sync": "^1.8.0",
