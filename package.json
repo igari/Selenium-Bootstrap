@@ -10,11 +10,11 @@
   "author": "Igari Takeharu",
   "license": "MIT",
   "dependencies": {
-    "del": "^2.2.2",
     "firefox-profile": "^0.4.8",
     "gm": "^1.23.0",
     "mkdirp": "^0.5.1",
     "open": "^0.0.5",
+    "rimraf": "^2.6.0",
     "selenium-standalone": "^6.0.1",
     "selenium-webdriver": "^3.0.1"
   }
