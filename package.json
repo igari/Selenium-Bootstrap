@@ -1,6 +1,6 @@
 {
   "name": "selenium-bootstrap",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Bootstrap for Selenium3.0. Just only install this, then you can use Selenium3.0",
   "main": "./lib/selenium-bootstrap.js",
   "bin": "./bin/selenium-bootstrap",
@@ -10,15 +10,11 @@
   "author": "Igari Takeharu",
   "license": "MIT",
   "dependencies": {
-    "browserstack-local": "^1.3.0",
     "del": "^2.2.2",
     "firefox-profile": "^0.4.8",
-    "git-rev-sync": "^1.8.0",
     "gm": "^1.23.0",
     "mkdirp": "^0.5.1",
-    "moment": "^2.17.1",
     "open": "^0.0.5",
-    "saucelabs": "^1.4.0",
     "selenium-standalone": "^6.0.1",
     "selenium-webdriver": "^3.0.1"
   }
