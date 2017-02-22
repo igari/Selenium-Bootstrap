@@ -12,15 +12,15 @@ npm i selenium-bootstrap -D
 ## Usage
 
 `selenium.run()` is an simple API which launch Browser. Both of `generator function` and `normal function with prommise` are supported.(Below example is written `generator function`) 
-And `capabilities` is able to be specified in the same way as `native Webdriver for NodeJS`.
+And only argument is  `capabilities` which is able to be specified in the same way as `native Webdriver for NodeJS`.
+
 
 index.js
 ```js
-const capabilities = {
-  browserName: 'chrome'
-};
 const Selenium = require('selenium-bootstrap');
-const selenium = new Selenium(capabilities);
+const selenium = new Selenium({
+  browserName: 'chrome'
+});
 selenium.run(function* (driver, webdriver) {
   yield driver.get('http://www.google.com/ncr');
   yield driver.findElement(webdriver.By.name('q')).sendKeys('webdriver');
@@ -31,6 +31,12 @@ selenium.run(function* (driver, webdriver) {
 ```sh
 node index.js
 ```
+
+### More examples
+- [Generator Example](https://github.com/igari/Selenium-Bootstrap/blob/master/examples/run.generator.js)
+- [Promise Example](https://github.com/igari/Selenium-Bootstrap/blob/master/examples/run.promise.js)
+
+In most cases, Generator is better than Promise chain.
 
 ## Features
 
