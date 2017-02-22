@@ -1,6 +1,6 @@
 {
   "name": "selen",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "A Bootstrap for Selenium3.0. Just only install this, then you can use Selenium3.0",
   "main": "./lib/selen.js",
   "bin": "./bin/selen",
