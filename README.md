@@ -1,21 +1,24 @@
 # A Bootstrap for Selenium3.0. just only install this, you can E2E automation testing.
 
-## Installation
-```sh
-yarn add selenium-bootstrap
-```
-or
-```sh
-npm i selenium-bootstrap -D
-```
+## Features
+
+### Basically, you don't need setup other specials for Selenium except for this
+Originally, below things is required to be worked Selenium.
+
+- Download & Install `Selenium Standalone`(from NPM Module)
+- When your script run, `Selenium Standalone` start automatically
+- Download & Set PATH for driver binary of each browsers(except for safari10~)
+- Launch browser and execute WebDriver codes.  
+
+### Fully Inherit native Webdriver for NodeJS
+So writable native Webdriver for NodeJS in function `selenium.run`
+
 
 ## Usage
 
-`selenium.run()` is an simple API which launch Browser. Both of `generator function` and `normal function with prommise` are supported.(Below example is written `generator function`) 
-And only argument is  `capabilities` which is able to be specified in the same way as `native Webdriver for NodeJS`.
-
-- `driver` argument is newed built instance from `selenium-webdriver` module.
-- `webdriver` argument is imported variable from `selenium-webdriver` module.
+1. Install with `yarn add selenium-bootstrap` or `npm i selenium-bootstrap -D`
+2. Write and run code like below
+3. Selenium and Browser get started 
 
 index.js
 ```js
@@ -34,28 +37,22 @@ selenium.run(function* (driver, webdriver) {
 node index.js
 ```
 
+`selenium.run()` is an simple API which launch Browser. Both of `generator function` and `normal function with prommise` are supported.(Below example is written `generator function`) 
+And only argument is  `capabilities` which is able to be specified in the same way as `native Webdriver for NodeJS`.
+
+- `driver` argument is newed built instance from `selenium-webdriver` module.
+- `webdriver` argument is imported variable from `selenium-webdriver` module.
+
+
 ### More examples
 - [Generator Example](https://github.com/igari/Selenium-Bootstrap/blob/master/examples/run.generator.js)
 - [Promise Example](https://github.com/igari/Selenium-Bootstrap/blob/master/examples/run.promise.js)
 
 In most cases, Generator is better than Promise chain.
 
-## Features
+## Custom Wrapper APIs (better then native Webdriver APIs) 
 
-### Basically, you don't need setup other specials for Selenium except for this
-Originally, below things is required to be worked Selenium.
-
-- Download & Install `Selenium Standalone`(from NPM Module)
-- When your script run, `Selenium Standalone` start automatically
-- Download & Set PATH for driver binary of each browsers(except for safari10~)
-- Launch browser and execute WebDriver codes.  
-
-### Fully Inherit native Webdriver for NodeJS
-So writable native Webdriver for NodeJS in function `selenium.run`
-
-### Custom Wrapper APIs (better then native Webdriver APIs) 
-
-##### Problem of `driver.executeScript` and `driver.executeAsyncScript`
+#### Problem of `driver.executeScript` and `driver.executeAsyncScript`
 The problem is that they are should to be passed as string like below.
 
 ```js
@@ -63,7 +60,7 @@ driver.executeScript('document.querySelector(".login-button").click();return [Ar
 driver.executeAsyncScript('var callback = arguments[arguments.length = 1];document.querySelector(".login-button").click();setTimeout(function() {callback([Arguments, are, available, at, here].join(" "))}, 10000);')
 ```
 
-#### `selenium.executeScript`
+### `selenium.executeScript`
 
 ```js
 selenium.executeScript(func[, Arg1, Arg2, ...]);
@@ -77,7 +74,7 @@ selenium.executeScript(function(Arguments, are, available, at, here) {
 }, 'Arguments', 'are', 'available', 'at', 'here');
 ```
 
-#### `selenium.executeAsyncScript`
+### `selenium.executeAsyncScript`
 
 ```js
 selenium.executeAsyncScript(func[, Arg1, Arg2, ...]);
@@ -94,7 +91,7 @@ selenium.executeAsyncScript(function(Arguments, are, available, at, here) {
 }, 'Arguments', 'are', 'available', 'at', 'here');
 ```
 
-#### `selenium.takeScreenshot`
+### `selenium.takeScreenshot`
 
 ```js
 selenium.takeScreenshot(path);
@@ -106,6 +103,14 @@ selenium.takeScreenshot('./my_screenshot/hoge.png');// -> save screenshot into s
 - Emulating **fullpage screenshot** with scrolling page for browsers which is not support fullpage screenshot(e.g. chrome).
 - Unnecessary to write `fs.writeFile' or `fs.writeFileSync` by yourself to save screenshot image..
 
+## Installation
+```sh
+yarn add selenium-bootstrap
+```
+or
+```sh
+npm i selenium-bootstrap -D
+```
 
 ## Let's use with Cloud Services for Remote or Multi Devices Testing
 
