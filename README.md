@@ -14,6 +14,8 @@ npm i selenium-bootstrap -D
 `selenium.run()` is an simple API which launch Browser. Both of `generator function` and `normal function with prommise` are supported.(Below example is written `generator function`) 
 And only argument is  `capabilities` which is able to be specified in the same way as `native Webdriver for NodeJS`.
 
+- `driver` argument is newed built instance from `selenium-webdriver` module.
+- `webdriver` argument is imported variable from `selenium-webdriver` module.
 
 index.js
 ```js
@@ -40,12 +42,13 @@ In most cases, Generator is better than Promise chain.
 
 ## Features
 
-### Basically, you don't need setup other special for Selenium except for this
-Originally, below things is required to be worked Selenium
+### Basically, you don't need setup other specials for Selenium except for this
+Originally, below things is required to be worked Selenium.
 
-- Download & Install Selenium Standalone
-- Launch Selenium Standalone Server
+- Download & Install `Selenium Standalone`(from NPM Module)
+- When your script run, `Selenium Standalone` start automatically
 - Download & Set PATH for driver binary of each browsers(except for safari10~)
+- Launch browser and execute WebDriver codes.  
 
 ### Fully Inherit native Webdriver for NodeJS
 So writable native Webdriver for NodeJS in function `selenium.run`
@@ -104,7 +107,7 @@ selenium.takeScreenshot('./my_screenshot/hoge.png');// -> save screenshot into s
 - Unnecessary to write `fs.writeFile' or `fs.writeFileSync` by yourself to save screenshot image..
 
 
-## Services for Remote Testing and Multi Devices Testing
+## Let's use with Cloud Services for Remote or Multi Devices Testing
 
 In the same way as native Webdriver, if you specify the service unique capability, then you can use these services.
 
