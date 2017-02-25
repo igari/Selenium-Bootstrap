@@ -103,6 +103,16 @@ selenium.takeScreenshot('./my_screenshot/hoge.png');// -> save screenshot into s
 - Emulating **fullpage screenshot** with scrolling page for browsers which is not support fullpage screenshot(e.g. chrome).
 - Unnecessary to write `fs.writeFile' or `fs.writeFileSync` by yourself to save screenshot image..
 
+## options
+```js
+const selenium = new Selenium({
+  browserName: 'chrome'
+}, {
+  port: '9999'
+});
+```
+- `port` is used selenium server(default port number is `4444`)
+
 ## Installation
 ```sh
 yarn add selenium-bootstrap
@@ -122,6 +132,13 @@ They are awesome cloud testing services using real browsers and devices.
 <br>
 <a href="https://saucelabs.com/"><img src="https://saucelabs.com/content/images/logo@2x.png" width="350" style="vertical-align: middle;"></a><br>
 
+## Change log
+
+##### v0.2.0
+- Port number has became be possible to specify
+
+##### v0.1.0
+- Launch this module
 
 ## Dependencies
 - [Node.js](https://nodejs.org/) (v7.5.0 is checked)

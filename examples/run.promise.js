@@ -1,6 +1,8 @@
 const Selenium = require('../lib/selenium-bootstrap.js');
 const selenium = new Selenium({
   browserName: 'chrome'
+}, {
+  port: '9999'
 });
 
 selenium.run(function(driver, webdriver) {
