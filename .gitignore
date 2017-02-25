@@ -1,10 +1,5 @@
 .idea/
 *iml
 .temp/
-samples/
-mochawesome-reports/
-browserStackLocal.txt
-yarn-error.log
-screenshots/
-errorshots/
 TASK.md
+node_modules/
