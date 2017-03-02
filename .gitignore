@@ -3,3 +3,5 @@
 .temp/
 TASK.md
 node_modules
+*.png
+selenium-bootstrap.log
