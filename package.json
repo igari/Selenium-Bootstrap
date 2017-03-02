@@ -1,6 +1,6 @@
 {
   "name": "selenium-bootstrap",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "A Bootstrap for Selenium3.0. Just only install this, then you can use Selenium3.0",
   "main": "./lib/selenium-bootstrap.js",
   "bin": "./bin/selenium-bootstrap",
@@ -17,5 +17,6 @@
     "rimraf": "^2.6.0",
     "selenium-standalone": "^6.0.1",
     "selenium-webdriver": "^3.0.1"
-  }
+  },
+  "devDependencies": {}
 }

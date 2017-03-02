@@ -115,7 +115,7 @@ const selenium = new Selenium({
 
 ## Installation
 ```sh
-yarn add selenium-bootstrap
+yarn add selenium-bootstrap -D
 ```
 or
 ```sh
