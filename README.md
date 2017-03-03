@@ -134,6 +134,9 @@ They are awesome cloud testing services using real browsers and devices.
 
 ## Change log
 
+##### v0.3.0
+- Support for chrome/ie11 on Windows
+
 ##### v0.2.0
 - Port number has became be possible to specify
 

@@ -1,6 +1,6 @@
 const Selenium = require('../lib/selenium-bootstrap.js');
 const selenium = new Selenium({
-  browserName: 'edge'
+  browserName: 'MicrosoftEdge'
 });
 
 selenium.run(function*(driver, webdriver) {
