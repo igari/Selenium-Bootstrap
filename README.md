@@ -2,16 +2,22 @@
 
 ## Features
 
-### Basically, you don't need setup other specials for Selenium except for this
+### Generator & Yield are supported
+- Run like `co` 
+
+### Extensible API
+- selenium.executeScript
+- selenium.executeAsyncScript
+- etc is under implementing...(real click api, wait api)
+- of course, native webdriver api is fully inherited
+
+### if `sss` options is set to `true`, you don't need setup other specials for Selenium except for this
 Originally, below things is required to be worked Selenium.
 
 - Download & Install `Selenium Standalone`(from NPM Module)
 - When your script run, `Selenium Standalone` start automatically
 - Download & Set PATH for driver binary of each browsers(except for safari10~)
 - Launch browser and execute WebDriver codes.  
-
-### Fully Inherit native Webdriver for NodeJS
-So writable native Webdriver for NodeJS in function `selenium.run`
 
 
 ## Usage
@@ -100,6 +106,7 @@ selenium.takeScreenshot(path);
 selenium.takeScreenshot('./my_screenshot/hoge.png');// -> save screenshot into specified path
 ```
 
+- `path` is optional. if not set, saved under cwd as filename which named based on url.
 - Emulating **fullpage screenshot** with scrolling page for browsers which is not support fullpage screenshot(e.g. chrome).
 - Unnecessary to write `fs.writeFile' or `fs.writeFileSync` by yourself to save screenshot image..
 
@@ -108,9 +115,11 @@ selenium.takeScreenshot('./my_screenshot/hoge.png');// -> save screenshot into s
 const selenium = new Selenium({
   browserName: 'chrome'
 }, {
-  port: '9999'
+  sss: true,
+  port: '9999',
 });
 ```
+- if `sss` is set to true, run with `selenium standalone server` included with this module. (Default: false)
 - `port` is used selenium server(default port number is `4444`)
 
 ## Installation
@@ -135,10 +144,11 @@ They are awesome cloud testing services using real browsers and devices.
 ## Change log
 
 ##### v0.3.0
-- Support for chrome/ie11 on Windows
+- Support for Browsers on Windows
+- Added `sss` Option for selecting whether to use Selenium Server included with this module(Default: false)
 
 ##### v0.2.0
-- Port number has became be possible to specify
+- Added `port` Option used by selenium standalone server
 
 ##### v0.1.0
 - Launch this module
