@@ -178,7 +178,7 @@ They are awesome cloud testing services using real browsers and devices.
 ## Change log
 
 ##### v0.3.0
-- Support for Browsers on Windows
+- Support for Browsers on Windows OS
 - Added `direct` Option for selecting whether to use webdriver for the browser directly(Default: false)
 - Added `fullAuto` Option for running with downloading and installing full automatically
 

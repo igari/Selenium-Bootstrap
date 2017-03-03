@@ -1,7 +1,7 @@
 {
   "name": "selenium-bootstrap",
   "version": "0.3.0",
-  "description": "A Bootstrap for Selenium3.0. Just only install this, then you can use Selenium3.0",
+  "description": "A Bootstrap for Selenium3.0 to run E2E Testing more conveniently.",
   "main": "./lib/selenium-bootstrap.js",
   "bin": "./bin/selenium-bootstrap",
   "scripts": {
