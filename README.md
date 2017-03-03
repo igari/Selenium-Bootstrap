@@ -1,24 +1,39 @@
-# A Bootstrap for Selenium3.0. just only install this, you can E2E automation testing.
+# A Bootstrap for Selenium3.0 to run E2E Testing more conveniently.
+
+I recommend to use this with manager of Selenium Standalone Server,
+
+e.g.)
+
+- [webdriver-manager](https://www.npmjs.com/package/webdriver-manager)
+- [selenium-standalone](https://www.npmjs.com/package/selenium-standalone)
 
 ## Features
 
 ### Generator & Yield are supported
-- Run like `co` 
+- If you specify generator function , it is run like [co](https://www.npmjs.com/package/co) basically
 
-### Extensible API
+### Better APIs than Native Webdriver
 - selenium.executeScript
 - selenium.executeAsyncScript
 - etc is under implementing...(real click api, wait api)
 - of course, native webdriver api is fully inherited
 
-### if `sss` options is set to `true`, you don't need setup other specials for Selenium except for this
+### if `fullAuto` options is set to `true`, you don't need setup other specials for Selenium except for this
 Originally, below things is required to be worked Selenium.
 
-- Download & Install `Selenium Standalone`(from NPM Module)
-- When your script run, `Selenium Standalone` start automatically
-- Download & Set PATH for driver binary of each browsers(except for safari10~)
-- Launch browser and execute WebDriver codes.  
+When your script run...
 
+- Required resources is downloaded & installed with  `Selenium Standalone`(from NPM Module) at only first time.
+- Start and Stop `Selenium Standalone` automatically
+
+## Installation
+```sh
+yarn add selenium-bootstrap -D
+```
+or
+```sh
+npm i selenium-bootstrap -D
+```
 
 ## Usage
 
@@ -111,29 +126,48 @@ selenium.takeScreenshot('./my_screenshot/hoge.png');// -> save screenshot into s
 - Unnecessary to write `fs.writeFile' or `fs.writeFileSync` by yourself to save screenshot image..
 
 ## options
+
+### port
+By default, it is referred to selenium standalone server
+
 ```js
 const selenium = new Selenium({
   browserName: 'chrome'
 }, {
-  sss: true,
   port: '9999',
 });
 ```
-- if `sss` is set to true, run with `selenium standalone server` included with this module. (Default: false)
 - `port` is used selenium server(default port number is `4444`)
 
-## Installation
-```sh
-yarn add selenium-bootstrap -D
-```
-or
-```sh
-npm i selenium-bootstrap -D
+### fullAuto
+```js
+const selenium = new Selenium({
+  browserName: 'chrome'
+}, {
+  fullAuto: true,
+});
 ```
 
-## Let's use with Cloud Services for Remote or Multi Devices Testing
+When your script run...
 
-In the same way as native Webdriver, if you specify the service unique capability, then you can use these services.
+- Required resources is downloaded & installed with  `Selenium Standalone`(from NPM Module) at only first time.
+- Start and Stop `Selenium Standalone` automatically
+- `port` is available at the same time
+
+### direct
+```js
+const selenium = new Selenium({
+  browserName: 'chrome'
+}, {
+  direct: true
+});
+```
+- if `direct` is set to `true`, run webdriver directly(not using selenium standalone server)
+
+
+## Easy to use with Cloud Services for Remote or Multi Devices Testing
+
+If you specify the service unique capability, then you can use these services.
 
 They are awesome cloud testing services using real browsers and devices.
 
@@ -145,7 +179,8 @@ They are awesome cloud testing services using real browsers and devices.
 
 ##### v0.3.0
 - Support for Browsers on Windows
-- Added `sss` Option for selecting whether to use Selenium Server included with this module(Default: false)
+- Added `direct` Option for selecting whether to use webdriver for the browser directly(Default: false)
+- Added `fullAuto` Option for running with downloading and installing full automatically
 
 ##### v0.2.0
 - Added `port` Option used by selenium standalone server
